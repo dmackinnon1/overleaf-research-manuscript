@@ -1,2 +1,1 @@
-#introduction
-Just an intro.
+A readme file is a good idea.
