@@ -1,4 +1,15 @@
+% this metadata is for the tagging setup please see: https://latex3.github.io/tagging-project/documentation/usage-instructions
+\DocumentMetadata{
+  lang        = en,
+  pdfstandard = ua-2,
+  pdfstandard = a-4, 
+  tagging=on,
+  tagging-setup={math/setup=mathml-SE} 
+}
 \documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
 \usepackage[english]{babel}
 
 % Set page size and margins
@@ -7,6 +18,7 @@
 
 % Useful packages
 \usepackage{amsmath}
+\usepackage{unicode-math}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
@@ -22,9 +34,9 @@ Your abstract.
 
 \section{Introduction}
 
-Your introduction goes here! This is a gret place to have an introduction. Simply start writing your document and use the Recompile button to view the updated PDF preview. Examples of commonly used commands and features are listed below, to help you get started.
+Simply start writing your document and use the Recompile button to view the updated PDF preview. Examples of commonly used commands and features are listed below, to help you get started.
 
-Once you're familiar with the editor, you can find various project settings in the Overleaf menu, accessed via the button in the very top left of the editor. To view tutorials, user guides, and further documentation, please visit our \href{https://www.overleaf.com/learn}{help library}, or head to our plans page to \href{https://www.overleaf.com/user/subscription/plans}{choose your plan}.
+A number of features are accessible on the left bar. The project and editor settings can be accessed via the gear icon at the bottom left of the editor screen. To view tutorials, user guides, and further documentation, please visit our \href{https://www.overleaf.com/learn}{help library}, or head to our plans page to \href{https://www.overleaf.com/user/subscription/plans}{choose your plan}.
 
 \section{Some examples to get started}
 
@@ -38,24 +50,27 @@ First you have to upload the image file from your computer using the upload link
 
 Note that your figure will automatically be placed in the most appropriate place for it, given the surrounding text and taking into account other figures or tables that may be close by. You can find out more about adding images to your documents in this help article on \href{https://www.overleaf.com/learn/how-to/Including_images_on_Overleaf}{including images on Overleaf}.
 
-\begin{figure}
+\begin{figure}[!htb]
 \centering
-\includegraphics[width=0.25\linewidth]{frog.jpg}
-\caption{\label{fig:frog}This frog was uploaded via the file-tree menu.}
+\includegraphics[width=0.25\linewidth,alt={image of a frog facing  towards the reader}]{frog.jpg}
+\caption{This frog was uploaded via the file-tree menu.}
+\label{fig:frog}
 \end{figure}
 
 \subsection{How to add Tables}
 
 Use the table and tabular environments for basic tables --- see Table~\ref{tab:widgets}, for example. For more information, please see this help article on \href{https://www.overleaf.com/learn/latex/tables}{tables}.
 
-\begin{table}
+\tagpdfsetup{table/header-rows={1}} %this tells the tagging infrastructure what row is the header of the table
+\begin{table}[!htb]
 \centering
 \begin{tabular}{l|r}
 Item & Quantity \\\hline
 Widgets & 42 \\
 Gadgets & 13
 \end{tabular}
-\caption{\label{tab:widgets}An example table.}
+\caption{An example table.}
+\label{tab:widgets}
 \end{table}
 
 \subsection{How to add Comments and Track Changes}
