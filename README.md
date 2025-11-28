@@ -2,7 +2,7 @@
 This is an example repository used to illustrate some research workflows that can be implemented using GitHub Actions, while also maintaining good Overleaf project hygeine. 
 
 - This repository (overleaf-research-manuscript) contains only LaTeX source, and some GitHub action scripts for acting on that source code.
-- Overleaf's [GitHub synchronization feature] (https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github-synchronization) allows the overleaf-research-manuscript repository to be synchronized with an Overleaf project.
+- Overleaf's [GitHub synchronization feature](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github-synchronization) allows the overleaf-research-manuscript repository to be synchronized with an Overleaf project.
 - The associated workspace repository ([overleaf-research-workspace](https://github.com/dmackinnon1/overleaf-research-workspace/tree/main)) contains additional artifacts that are produced by the research workflow: a sharable PDF of the latest version of the manuscript, an accessibility report, a PDF showing recent changes, etc. The workspace also provides a place for raw data, scripts, and other artifacts that are not directly required for compiling the manuscript.
 
 It is important to keep the Overleaf project, and the overleaf-research-manuscript repository free from files that could cause [Overleaf's project limits](https://docs.overleaf.com/getting-started/free-and-premium-plans/plan-limits) to be exceeded, or that may introduce clutter or confusion into the document build process. 
