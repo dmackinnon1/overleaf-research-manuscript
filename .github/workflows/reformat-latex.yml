@@ -1,0 +1,48 @@
+name: Format LaTeX Code
+
+on:
+  workflow_dispatch:
+ 
+permissions:
+  contents: write
+
+jobs:
+  format_code:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/xu-cheng/texlive-full:latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Trust the workspace
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Run latexindent
+        run: |
+          # Find all .tex, .sty, and .cls files and run latexindent on them
+          # -w : overwrite the file in place
+          # -s : silent mode (no output to terminal unless error)
+          # -l : load default settings (optional, but good practice)
+          find . -maxdepth 3 -name "*.tex" | \
+          xargs -I {} latexindent -w -s {}
+
+          # Remove the backup files (.bak) created by latexindent
+          find . -name "*.bak0" -delete
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Add all changes (modified files and deletions)
+          git add -u
+          
+          # Commit only if there were formatting changes
+          if ! git diff --quiet --cached; then
+            git commit -m "Style: Auto-format LaTeX source code"
+            git push
+          else
+            echo "No formatting changes needed."
+          fi
