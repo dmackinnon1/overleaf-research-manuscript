@@ -15,7 +15,7 @@ jobs:
 
       - name: Run tex-fmt
         # This action automatically downloads the binary and runs it
-        uses: grayespinoza/tex-fmt-action@v1
+        uses: grayespinoza/tex-fmt-action@main
         with:
           # Optional: Arguments to pass to tex-fmt
           # By default, it finds all .tex files.
