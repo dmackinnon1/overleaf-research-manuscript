@@ -1,0 +1,40 @@
+name: Format LaTeX Code (tex-fmt)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  format_code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run tex-fmt
+        # This action automatically downloads the binary and runs it
+        uses: grayespinoza/tex-fmt-action@v1
+        with:
+          # Optional: Arguments to pass to tex-fmt
+          # By default, it finds all .tex files.
+          # --nowrap is a common preference (keeps lines long rather than breaking them)
+          # Remove this line if you prefer standard wrapping.
+          args: --nowrap
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Add all changes (tex-fmt modifies files in-place)
+          git add -u
+          
+          # Commit only if there were formatting changes
+          if ! git diff --quiet --cached; then
+            git commit -m "Style: Auto-format LaTeX using tex-fmt"
+            git push
+          else
+            echo "No formatting changes needed."
+          fi
