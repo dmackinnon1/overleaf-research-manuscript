@@ -9,6 +9,6 @@ The LaTeX source code makes use of the latest PDF tagging support available in T
 The [overleaf-research-workspace](https://github.com/dmackinnon1/overleaf-research-workspace) repository that is associated with this repository can be used to compile the latest PDF and apply accessibility tests using [veraPDF](https://verapdf.org/).
 
 ## LaTeX formatting
-As a demonstration of how GitHub Actions can be used to transform and operate on LaTeX source code, there is a workflow in this project that applies (latexindent)[https://ctan.org/pkg/latexindent?lang=en] to the .tex files in this repository in order to apply standard formatting rules.
+As a demonstration of how GitHub Actions can be used to transform and operate on LaTeX source code, there is are workflows in this project that will reformat latex code for readability. There are two leading tools for this,  [latexindent](https://ctan.org/pkg/latexindent?lang=en) and [tex-fmt](https://github.com/WGUNDERWOOD/tex-fmt). There are example actions in this repo for both of these tools
 
-**A word of caution**: Applying tools like latexindent to .tex files can disrupt Overleaf's source code comments. Changes made to files from an external tool will not show as tracked changes (but will be shown in the Overleaf history).
+**A word of caution**: Applying tools like these to .tex files can disrupt Overleaf's source code comments. Changes made to files from an external tool will not show as tracked changes (but will be shown in the Overleaf history).
