@@ -1,4 +1,4 @@
-name: Format LaTeX Code
+name: Format LaTeX Code (latexindent)
 
 on:
   workflow_dispatch:
